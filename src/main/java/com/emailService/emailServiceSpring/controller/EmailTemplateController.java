@@ -16,11 +16,6 @@ public class EmailTemplateController {
     @Autowired
     private EmailTemplateService emailTemplateService;
 
-    @GetMapping
-    public ResponseEntity<?> ok(){
-        return new ResponseEntity<>("all OK", HttpStatus.OK);
-    }
-
     @PostMapping("/send")
     public ResponseEntity<?> EmailSender(@RequestBody EmailUsingTemplate email) {
 
