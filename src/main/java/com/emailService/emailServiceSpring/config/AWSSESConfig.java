@@ -13,10 +13,7 @@ public class AWSSESConfig {
 
     @Bean
     public SesV2Client sesV2Client() {
-        Dotenv dotenv = Dotenv.configure()
-                .directory("D:\\Program_Files\\emailServiceSpring\\emailServiceSpring")
-                .filename(".env")
-                .load();
+        Dotenv dotenv = Dotenv.load();
 
         AwsBasicCredentials awsCreds = AwsBasicCredentials.create(
                 dotenv.get("AWS_ACCESS_KEY_ID"),

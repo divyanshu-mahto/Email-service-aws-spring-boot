@@ -16,25 +16,9 @@ public class EmailTemplateService {
         this.sesV2Client = sesV2Client;
     }
 
-    public void send(String sender, String recipient, String templateName) throws Exception {
+    public void send(String sender, String recipient, String templateName, Template myTemplate) throws Exception {
         Destination destination = Destination.builder()
                 .toAddresses(recipient)
-                .build();
-
-
-        Template myTemplate = Template.builder()
-                .templateName(templateName)
-                .templateData("{\n" +
-                        "  \"name\": \"Divyanshu Mahto\",\n" +
-                        "  \"event_name\": \"Tech Innovators Summit 2024\",\n" +
-                        "  \"organiser\": \"Tech Club\",\n" +
-                        "  \"description\": \"A gathering of innovators and tech enthusiasts to discuss the latest trends in technology.\",\n" +
-                        "  \"start_date\": \"2024-10-15\",\n" +
-                        "  \"start_time\": \"10:00\",\n" +
-                        "  \"end_date\": \"2024-10-15\",\n" +
-                        "  \"end_time\": \"15:00\",\n" +
-                        "  \"venue\": \"Anna Auditorium\"\n" +
-                        "}")
                 .build();
 
 

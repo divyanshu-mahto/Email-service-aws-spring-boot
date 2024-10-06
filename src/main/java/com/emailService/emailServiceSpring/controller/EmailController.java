@@ -23,14 +23,14 @@ public class EmailController {
         String subject = email.getSubject();
 
         String bodyHTML = "<html>" + "<head></head>" + "<body>" + "<h1>Hello!</h1>"
-                + "<p> Mail sent using AWS SES.</p>" + "</body>" + "</html>";
+                + "<p>Test Mail sent using this project https://github.com/divyanshu-mahto/Email-service-aws-spring-boot.</p>" + "</body>" + "</html>";
 
         try{
             emailService.send(sender, recipient, subject, bodyHTML);
             return new ResponseEntity<>("Email sent to "+recipient, HttpStatus.OK);
         }
         catch (Exception e){
-            return new ResponseEntity<>("Email not sent: " + e.getMessage(), HttpStatus.EXPECTATION_FAILED);
+            return new ResponseEntity<>("Email not sent: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
